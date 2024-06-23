@@ -69,6 +69,11 @@ public class ControladorProducto extends HttpServlet {
 		producto.setDescripcl2(descrip);
 		//invocacion del metodo registrar
 		crud.RegistrarProducto(producto);
+		//actualizar listado de los productos
+		List<TblProductocl2> listadoproducto=crud.ListadoProducto();
+		
+		//invocamos el listado 
+		request.setAttribute("listadoproducto", listadoproducto);
 		//redireccionamos
 		request.getRequestDispatcher("/ListadoProductos.jsp").forward(request, response);
 		
